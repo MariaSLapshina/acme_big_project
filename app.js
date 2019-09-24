@@ -18,8 +18,20 @@ app.get('/api/students', (req,res,next) => {
     .then(students => res.send(students))
     .catch(next)
 })
-app.post('api/students', (req,res,next) => {
+app.post('/api/students', (req,res,next) => {
     Student.create(req.body)
     .then(student =>res.send(student))
     .catch(next)
+})
+app.put('/api/students/:id', (req,res,next)=> {
+    Student.findByPk(req.params.id)
+        .then( student => student.update(req.body))
+        .then( student => res.send(student))
+
+})
+app.delete('/api/students/:id', (req,res,next)=>{
+    User.findByPk(req.params.id)
+    .then( user => user.destroy())
+    .then( () => res.sendStatus(204))
+    .catch(next);
 })
