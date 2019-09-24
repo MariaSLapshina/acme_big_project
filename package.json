@@ -7,11 +7,16 @@
     "webpack": "webpack --watch --mode=development",
     "start:dev": "nodemon server.js --ignore dist/ --ignore src/ & npm run webpack"
   },
+  "babel": {
+    "presets": [
+      "@babel/react"
+    ]
+  },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/MariaSLapshina/acme_big_project.git"
   },
-  "author": "",
+  "author": "Maria Lapshina",
   "license": "ISC",
   "bugs": {
     "url": "https://github.com/MariaSLapshina/acme_big_project/issues"
@@ -19,7 +24,7 @@
   "homepage": "https://github.com/MariaSLapshina/acme_big_project#readme",
   "dependencies": {},
   "devDependencies": {
-    "@babel/core": "^7.6.0",
+    "@babel/core": "^7.6.2",
     "@babel/preset-react": "^7.0.0",
     "axios": "^0.19.0",
     "babel-loader": "^8.0.6",

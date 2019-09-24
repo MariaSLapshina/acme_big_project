@@ -1,7 +1,7 @@
 const express = require('express');
 const app = express();
 const path = require('path');
-const { Student, School } = require('./db').models
+const { Student, School } = require('./db/db').models
 
 module.exports = app
 
