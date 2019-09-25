@@ -1,8 +1,9 @@
-// import React from 'react'
-// import ReactDOM from 'react-dom'
-// import { Provider } from 'react-redux'
+import React from 'react'
+import {render} from 'react-dom'
+import { Provider } from 'react-redux'
+import App from './App'
 
-// ReactDOM.render(<Provider><hr/></Provider>, document.querySelector('#root'))
+render(<Provider><App/></Provider>, document.querySelector('#root'))
 
 // import React from 'react'
 // import { render } from 'react-dom'
