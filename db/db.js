@@ -60,7 +60,10 @@ const syncAndSeed = async() => {
    const students = [
        {firstName: 'Haoyu', lastName: 'Yu',email:'hayou@gmail.com', GPA:'3.8'},
        {firstName: 'Maria', lastName: 'Lapshina',email:'maria@gmail.com', GPA:'3.97'},
-       {firstName: 'Prof', lastName: 'Katz',email:'prof@gmail.com', GPA:'2.8'}
+       {firstName: 'Prof', lastName: 'Katz',email:'prof@gmail.com', GPA:'2.8'},
+       {firstName: 'Mary', lastName: 'Lanser',email:'mary@gmail.com', GPA:'3.99'},
+       {firstName: 'Paul', lastName: 'Smirnoff',email:'paul@gmail.com', GPA:'2.0'},
+
    ]
    const schools = [
     {name:'CCNY', imageURL: 'https://www.ccny.cuny.edu/sites/default/files/styles/top_slider/public/CCNY%20Quad-2.jpg?itok=LdXcVxCj'},
