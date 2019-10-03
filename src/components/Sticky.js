@@ -2,7 +2,7 @@ import React from 'react'
 import { connect } from 'react-redux'
 const Form = () => {
     return(
-        <div>
+        <div id = 'form'>
             First Name <input type = 'text'/>
             Last Name <input type= 'text'/>
             email <input type = 'email'/>
