@@ -3,10 +3,11 @@ const app = express();
 const path = require('path');
 const { Student, School } = require('./db/db').models
 
-module.exports = app
 
 app.use(express.json())
+app.use('/dist', express.static(path.join(__dirname, 'dist')))
 app.get('/', (req,res,next) => res.sendFile(path.join(__dirname, 'index.html')))
+
 
 app.get('/api/schools', (req,res,next) => {
     School.findAll()
@@ -35,3 +36,5 @@ app.delete('/api/students/:id', (req,res,next)=>{
     .then( () => res.sendStatus(204))
     .catch(next);
 })
+
+module.exports = app

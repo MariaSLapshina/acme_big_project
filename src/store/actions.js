@@ -1,4 +1,5 @@
 import axios from "axios";
+//import { globalAgent } from "http";
 
 // const setLoading = (loading) => {
 //     return {
@@ -11,7 +12,7 @@ const CREATE_STUDENT = 'CREATE_STUDENT'
 const DESTROY_STUDENT ='DESTROY_STUDENT'
 const ENROLL_STUDENT = 'ENROLL_STUDENT'
 const GET_STUDENTS = 'GET_STUDENTS'
-
+const GET_SCHOOLS = 'GET_SCHOOLS'
 
 const getStudents = (students) => {
     return {
@@ -37,7 +38,21 @@ const getStudents = (students) => {
          student
      }
  }
+ /**********************************************************************************************************/
+ const getSchools = schools => {
+     return {
+         type: GET_SCHOOLS,
+         schools
+     }
+ }
 
+ const _getSchools = () => {
+     return async(dispatch) => {
+         const schools = (await axios.get('/api/schools')).data
+         return dispatch(getSchools(schools))
+     }
+ }
+ /**********************************************************************************************************/
  const fetchStudents = () => { //thunk
     return async(dispatch) =>  {
         const students = (await axios.get('/api/students')).data
@@ -72,4 +87,13 @@ const enrollStudent_ = (student) => {
 
 
 
-export { createStudent_, destroyStudent_, fetchStudents}
+export { createStudent_,
+     destroyStudent_, 
+     fetchStudents, 
+     _getSchools,
+     ENROLL_STUDENT, 
+     CREATE_STUDENT, 
+     DESTROY_STUDENT, 
+     GET_STUDENTS,
+     GET_SCHOOLS
+    }

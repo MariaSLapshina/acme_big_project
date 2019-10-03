@@ -1,29 +1,43 @@
 import React, { Component } from 'react'
-import { HashRouter, Route, Link } from 'react-router-dom';
-
-const Nav = () => {
-    return(
-        <div>
-            <h1>Acme Schools</h1>
-            <nav>
-                <Link to='/'>Home</Link>
-                <Link to='/students'>Students</Link>
-                <Link to='/schools'>Schools</Link>
-            </nav>
-            </div>
-        )
-    }
+import { HashRouter, Route, Switch } from 'react-router-dom';
+import { actions } from './store';
+import { connect } from 'react-redux'
+import Students from './components/Students'
+import Schools from './components/Schools'
+import Nav from './components/Nav'
+//import fetchStudents from './store/actions'
 
 class App extends Component{
-    // componentDidMount(){
-    // }
+   
+    constructor(){
+        super()
+        this.state = {}
+       
+    }
+    componentDidMount(){
+            this.props.fetchStudents()
+            this.props._getSchools()
+    }
+   
     render(){
         return(
+            // <div>Hello World</div>
             <HashRouter>
-                <Route  component = {Nav}/>
+                <Route component = {Nav}/>
+                <Switch>
+                    <Route exact path ='/'/>
+                    <Route exact path ='/students' component = {Students}/>
+                    <Route exact path ='/schools' component = {Schools}/>
+                </Switch>
             </HashRouter>
         )
     }
 }
 
-export default App
+const mapDispatchToProps = (dispatch) => {
+    return{
+        fetchStudents: () => dispatch(actions.fetchStudents()),
+        _getSchools: () => dispatch(actions._getSchools())
+    }
+}
+export default connect(null, mapDispatchToProps)(App)

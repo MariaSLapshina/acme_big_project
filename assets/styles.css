@@ -1,0 +1,11 @@
+body {
+    font-family: verdana;
+  }
+nav {
+    display: flex;
+    justify-content: space-around
+}
+.active {
+    background-color: tomato;
+    border: black solid 1px;
+}
