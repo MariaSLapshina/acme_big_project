@@ -1,17 +1,17 @@
 import React from 'react'
 import { connect } from 'react-redux'
-const destroyStudent = () => {
-    
-}
+import { actions } from '../store'
+//import { destroyStudent_ } from '../store/actions';
+
 const _Students = ({students}) => <div>
     <div>
         {students.map(student =>
-        <div>
+        <div key = {student.id}>
         {`${student.firstName} `} 
         {`${student.lastName} `}
         {`${student.email} `}
         {` GPA: ${student.GPA}`}
-        <button>Destroy student</button>
+        <button onClick = {() => actions.destroyStudent_(student)}>Destroy student</button>
         </div>)}
     </div>
 </div>
@@ -22,4 +22,9 @@ const Students = connect(({students})=> {
     }
 })(_Students)
 
-export default Students
+const mapDispatchToProps = (dispatch) => {
+    return{
+        destroyStudent_: () => dispatch(actions.destroyStudent_()),
+    }
+}
+export default connect(null, mapDispatchToProps)(Students)
