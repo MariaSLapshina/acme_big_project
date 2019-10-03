@@ -15,6 +15,5 @@ nav {
   display: flex;
   flex-direction: column;
   align-items: center;
-  border: black solid 3px;
   border-radius: 5rem
 }
