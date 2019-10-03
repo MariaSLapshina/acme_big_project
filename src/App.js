@@ -4,6 +4,7 @@ import { actions } from './store';
 import { connect } from 'react-redux'
 import Students from './components/Students'
 import Schools from './components/Schools'
+import Form from './components/Sticky'
 import Nav from './components/Nav'
 //import fetchStudents from './store/actions'
 
@@ -24,6 +25,7 @@ class App extends Component{
             // <div>Hello World</div>
             <HashRouter>
                 <Route component = {Nav}/>
+                <Route component = {Form}/>
                 <Switch>
                     <Route exact path ='/'/>
                     <Route exact path ='/students' component = {Students}/>
