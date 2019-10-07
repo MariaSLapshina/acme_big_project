@@ -11,7 +11,7 @@ const _Students = ({students}) => <div>
         {`${student.lastName} `}
         {`${student.email} `}
         {` GPA: ${student.GPA}`}
-        <button onClick = {() => actions.destroyStudent_(student)}>Destroy student</button>
+        <button onClick = {actions.destroyStudent_(student)}>Destroy student</button>
         </div>)}
     </div>
 </div>
@@ -27,4 +27,4 @@ const mapDispatchToProps = (dispatch) => {
         destroyStudent_: () => dispatch(actions.destroyStudent_()),
     }
 }
-export default connect(null, mapDispatchToProps)(Students)
+export default connect(null,mapDispatchToProps)(Students)

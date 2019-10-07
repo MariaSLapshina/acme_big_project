@@ -1,19 +1,30 @@
 import React from 'react'
 import { connect } from 'react-redux'
-const Form = () => {
+import Schools from './Schools';
+
+const Form = ({schools}) => {
     return(
         <div id = 'form'>
-            First Name <input type = 'text'/>
-            Last Name <input type= 'text'/>
-            email <input type = 'email'/>
-            GPA <input type = 'number'/>
+            First Name <input type = 'text'/><br/>
+            Last Name <input type= 'text'/><br/>
+            email <input type = 'email'/><br/>
+            GPA <input type = 'number'/><br/>
             Enrolled at<select>
-                <option>Not specified</option>
-                <option></option>
-                <option></option>
-            </select>
+                <option>--Not enrolled--</option>
+               {schools.map(school => <option key = {school.id}>{school.name}</option>)}
+            </select><br/>
             <button>Save</button>
         </div>
     )
 }
-export default Form
+const mapStateToProps = ({ schools })=> {
+ 
+    // const popularSchool = schools.reduce((acc,school)=>{
+    //     if(acc>s)
+    // },0)
+        return {
+            schools
+        }
+}
+
+export default connect(mapStateToProps)(Form)

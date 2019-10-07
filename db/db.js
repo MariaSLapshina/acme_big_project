@@ -63,17 +63,15 @@ const syncAndSeed = async() => {
        {firstName: 'Prof', lastName: 'Katz',email:'prof@gmail.com', GPA:'2.8'},
        {firstName: 'Mary', lastName: 'Lanser',email:'mary@gmail.com', GPA:'3.99'},
        {firstName: 'Paul', lastName: 'Smirnoff',email:'paul@gmail.com', GPA:'2.0'},
-
    ]
    const schools = [
-    {name:'CCNY', imageURL: 'https://www.ccny.cuny.edu/sites/default/files/styles/top_slider/public/CCNY%20Quad-2.jpg?itok=LdXcVxCj'},
-    {name: 'FullStack', imageURL: 'https://media.licdn.com/dms/image/C4D0BAQGDPuTINGjJYA/company-logo_200_200/0?e=2159024400&v=beta&t=DbYjofNnM6t66Pn_BPd_1oMHvasXqH3eSik09UJ9nW8'},
-    {name:'MIT', imageURL:'https://img.jakpost.net/c/2018/10/16/2018_10_16_56356_1539663432._large.jpg'}
-]
+        {name:'CCNY', imageURL: 'https://www.ccny.cuny.edu/sites/default/files/styles/top_slider/public/CCNY%20Quad-2.jpg?itok=LdXcVxCj'},
+        {name: 'FullStack', imageURL: 'https://media.licdn.com/dms/image/C4D0BAQGDPuTINGjJYA/company-logo_200_200/0?e=2159024400&v=beta&t=DbYjofNnM6t66Pn_BPd_1oMHvasXqH3eSik09UJ9nW8'},
+        {name:'MIT', imageURL:'https://img.jakpost.net/c/2018/10/16/2018_10_16_56356_1539663432._large.jpg'}
+    ]
 const schoolsArray = [...await Promise.all(schools.map(school => School.create(school)))]
 //console.log(schoolsArray)
 await Promise.all(students.map(student => Student.create({...student,schoolId: schoolsArray[Math.floor(Math.random()*schoolsArray.length)].id})))
-
 }
 
 module.exports = {

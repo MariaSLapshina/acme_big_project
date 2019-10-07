@@ -6,21 +6,18 @@ import Students from './components/Students'
 import Schools from './components/Schools'
 import Form from './components/Sticky'
 import Nav from './components/Nav'
+import Home from './components/Home'
 //import fetchStudents from './store/actions'
 
 class App extends Component{
-   
     constructor(){
         super()
         this.state = {}
-       
     }
     componentDidMount(){
             this.props.fetchStudents()
-            this.props._getSchools()
-            
+            this.props._getSchools() 
     }
-   
     render(){
         return(
             // <div>Hello World</div>
@@ -28,7 +25,7 @@ class App extends Component{
                 <Route component = {Nav}/>
                 <Route component = {Form}/>
                 <Switch>
-                    <Route exact path ='/'/>
+                    <Route exact path ='/' component = {Home}/>
                     <Route exact path ='/students' component = {Students}/>
                     <Route exact path ='/schools' component = {Schools}/>
                 </Switch>

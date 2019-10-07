@@ -53,14 +53,14 @@ const getStudents = (students) => {
      }
  }
  /**********************************************************************************************************/
- const fetchStudents = () => { //thunk
+const fetchStudents = () => { //thunk
     return async(dispatch) =>  {
         const students = (await axios.get('/api/students')).data
         return dispatch(getStudents(students))
     }
  }
 
- const createStudent_ = () => {
+const createStudent_ = () => {
      return async(dispatch) => {
           const student = (await axios.post('/api/students')).data
           return dispatch(createStudent(student))
@@ -80,12 +80,6 @@ const enrollStudent_ = (student) => {
         return dispatch(enrollStudent(student))
     }
 }
-
-
-
-
-
-
 
 export { createStudent_,
      destroyStudent_, 

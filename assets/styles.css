@@ -3,7 +3,9 @@ body {
   }
 nav {
     display: flex;
-    justify-content: space-around
+    justify-content: space-around;
+    background-color: dodgerblue;
+    padding: 5px
 }
 .active {
     background-color: tomato;
@@ -12,8 +14,6 @@ nav {
 }
 
 #form {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  border-radius: 5rem
+  text-align: center;
+  padding: 15px;
 }
