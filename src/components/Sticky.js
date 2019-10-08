@@ -1,8 +1,9 @@
 import React from 'react'
 import { connect } from 'react-redux'
 import Schools from './Schools';
+import { actions } from '../store'
 
-const Form = ({schools}) => {
+const Form = ({schools, createStudent_}) => {
     return(
         <div id = 'form'>
             First Name <input type = 'text'/><br/>
@@ -13,7 +14,7 @@ const Form = ({schools}) => {
                 <option>--Not enrolled--</option>
                {schools.map(school => <option key = {school.id}>{school.name}</option>)}
             </select><br/>
-            <button>Save</button>
+            <button /*onClick = {()=>createStudent_}*/>Save</button>
         </div>
     )
 }

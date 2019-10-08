@@ -32,7 +32,7 @@ app.put('/api/students/:id', (req,res,next)=> {
 
 })
 app.delete('/api/students/:id', (req,res,next)=>{
-    User.findByPk(req.params.id)
+    Student.findByPk(req.params.id)
     .then(user => user.destroy())
     .then(() => res.sendStatus(204))
     .catch(next);
